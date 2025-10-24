@@ -4,31 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ titulo }}</title>
-    </head>
-<body>
+    <style>
+        /* ... Seu CSS de Header, Container e Botões ... */
 
+        /* Estilo específico para a imagem na página Sobre */
+        .img-historia {
+            width: 100%;
+            height: auto;
+            max-height: 400px; /* Limita a altura para não ser excessiva em monitores grandes */
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .conteudo-sobre {
+            background-color: white; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    
     <div class="header">
         <h1>Sobre a [NOME DA SUA LOJA]</h1>
         <p>Nossa História, Valores e Compromisso.</p>
     </div>
 
-    <div class="container-principal" style="display: block; max-width: 900px;">
-        <div style="background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <div class="container-principal" style="display: block; max-width: 900px; padding: 0 20px;">
+        <div class="conteudo-sobre">
+            
+            {% if url_imagem_empresa %}
+                <img src="{{ url_imagem_empresa }}" alt="Fachada da Empresa ou Projeto Destaque" class="img-historia">
+            {% endif %}
+
             <h2>{{ titulo }}</h2>
-            <p style="line-height: 1.6; font-size: 1.1em;">
+            <p style="line-height: 1.6; font-size: 1.1em; margin-bottom: 25px;">
                 {{ texto_principal }}
             </p>
-
-            <p>Nossa especialidade em porcelanatos e materiais de construção de alta qualidade garante que sua obra seja um sucesso. Nosso atendimento é focado no WhatsApp para dar a agilidade que você precisa.</p>
-
-            <h3 style="margin-top: 30px; color: #128C7E;">Nossa Missão</h3>
-            <p>Simplificar o processo de escolha de materiais, oferecendo excelência e agilidade no orçamento.</p>
+            
+            <h3 style="margin-top: 30px; color: #128C7E;">Missão e Visão</h3>
+            <p>Acreditamos que a escolha de materiais de construção deve ser transparente e eficiente. Nossa missão é simplificar o processo, oferecendo excelência e a agilidade que só o atendimento direto via WhatsApp pode proporcionar.</p>
+            
+            <h3 style="margin-top: 30px; color: #128C7E;">Nossos Valores</h3>
+            <ul>
+                <li>**Qualidade:** Foco em porcelanatos e materiais de alto padrão.</li>
+                <li>**Agilidade:** Orçamentos e respostas rápidas.</li>
+                <li>**Transparência:** Informações técnicas claras.</li>
+            </ul>
 
             <p style="text-align: center; margin-top: 40px;">
-                <a href="{% url 'catalogo_lista' %}" style="color: #007bff; text-decoration: none;">&larr; Voltar para o Catálogo</a>
+                <a href="{% url 'catalogo_lista' %}" style="color: #007bff; text-decoration: none; font-weight: bold;">&larr; Voltar para o Catálogo e Orçar!</a>
             </p>
         </div>
     </div>
-
+    
     </body>
 </html>

@@ -24,3 +24,14 @@ def sobre_a_marca(request):
         # Adicione mais dados conforme precisar
     }
     return render(request, 'sobre.html', context) # Rendeiza o novo template
+
+def sobre_a_marca(request):
+    # Link público da imagem da sua empresa ou portfólio de porcelanato (USE UM LINK DIRETO)
+    IMAGEM_MARCA = "https://i.imgur.com/seu-link-da-empresa.jpg" 
+    
+    context = {
+        'titulo': 'Nossa História e Missão',
+        'texto_principal': 'A [Sua Marca] nasceu com o objetivo de... ',
+        'url_imagem_empresa': IMAGEM_MARCA, # <-- NOVO CONTEXTO PASSADO PARA O TEMPLATE
+    }
+    return render(request, 'sobre.html', context)
