@@ -15,3 +15,12 @@ def catalogo(request):
         'produtos': filtro.qs, # A lista de produtos filtrados
     }
     return render(request, 'catalogo.html', context)
+
+def sobre_a_marca(request):
+    # Aqui você pode passar textos e dados da história da marca
+    context = {
+        'titulo': 'Nossa História e Missão',
+        'texto_principal': 'A [Sua Marca] nasceu com o objetivo de... ',
+        # Adicione mais dados conforme precisar
+    }
+    return render(request, 'sobre.html', context) # Rendeiza o novo template
