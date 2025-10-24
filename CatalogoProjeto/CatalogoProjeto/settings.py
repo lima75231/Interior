@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # === REGISTRE SEU APP AQUI! ===
     'produtos', 
-    'django_filter', # Se você já o instalou para os filtros
+    'django_filters', # Se você já o instalou para os filtros
 ]
 
 MIDDLEWARE = [
