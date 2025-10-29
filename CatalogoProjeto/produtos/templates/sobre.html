@@ -5,33 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ titulo }}</title>
     <style>
-        /* ... Seu CSS de Header, Container e Botões ... */
+    /* --- ESTILOS GERAIS E LAYOUT --- */
+    body { 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        color: #333; 
+        margin: 0; 
 
-        /* Estilo específico para a imagem na página Sobre */
-        .img-historia {
-            width: 100%;
-            height: auto;
-            max-height: 400px; /* Limita a altura para não ser excessiva em monitores grandes */
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .conteudo-sobre {
-            background-color: white; 
-            padding: 30px; 
-            border-radius: 8px; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-    </style>
+        /* NOVO: Imagem de Fundo para o Body */
+        background-image: url('https://i.imgur.com/seu-link-de-fundo-aqui.jpg'); /* Use o LINK DIRETO da sua imagem! */
+        background-size: cover; /* Cobre todo o fundo */
+        background-attachment: fixed; /* Imagem fica fixa ao rolar */
+        background-position: center center; /* Centraliza a imagem */
+        background-color: #f5f5f5; /* Cor de fallback caso a imagem não carregue */
+        
+        /* NOVO: Para garantir que o texto seja legível sobre a imagem de fundo, 
+           usaremos um "overlay" nos elementos de conteúdo (container-principal e header)
+           ou daremos um fundo sólido a eles, como já está. */
+    }
+    /* ... o restante do seu CSS ... */
+
+    /* Para o header e sidebar/conteúdo terem um fundo sólido e se destacarem sobre a imagem de fundo: */
+    .header { 
+        background-color: rgba(18, 140, 126, 0.9); /* Verde escuro profissional com leve transparência */
+        /* ... outros estilos ... */
+    }
+    .sidebar, .conteudo-sobre { /* Aplique o fundo branco/transparente */
+        background-color: rgba(255, 255, 255, 0.95); /* Branco com leve transparência */
+        /* ... outros estilos ... */
+    }
+    .produto-card { /* Para que os cards se destaquem */
+        background-color: rgba(255, 255, 255, 0.98); /* Quase branco sólido */
+        /* ... outros estilos ... */
+    }
+</style>
 </head>
 <body>
     
     <div class="header">
-        <h1>Sobre a [NOME DA SUA LOJA]</h1>
-        <p>Nossa História, Valores e Compromisso.</p>
+        <h1>Sobre a Pemaco Exclusive</h1>
+        <p>A maior casa de marcas do país agora está em Cacoal-RO.</p>
     </div>
 
+    <div class="container-principal" style="display: block; max-width: 900px; padding: 0 20px;">
+        <div class="conteudo-sobre">
+            
+            {% if url_imagem_empresa %}
+                <img src="{{ url_imagem_empresa }}" alt="Fachada da Empresa ou Projeto Destaque" class="img-historia">
+            {% endif %}
+
+            <h2 style="color: #128C7E;">O Grupo Dexco e a Pemaco Exclusive</h2>
+            
+            <p style="line-height: 1.6; margin-bottom: 25px;">
+                A Pemaco Exclusive nasceu com a missão de trazer o que há de melhor para a população de Rondônia. Somos a casa de marcas do grupo **Dexco** em Cacoal-RO, o que garante a você acesso a um *mix premium* de produtos, contemplando grandes nomes como **Portinari, Ceusa, e Deca Louças e Metais.**
+            </p>
+            
+            <h3 style="margin-top: 30px;">A Visão dos Fundadores</h3>
+            
+            <p style="line-height: 1.6; margin-bottom: 25px;">
+                Os idealizadores do espaço, Eloisa e Lincoln, após gerir uma rede de 6 lojas de materiais de construção por 7 anos, identificaram uma lacuna crítica no mercado local:
+            </p>
+            
+            <blockquote style="border-left: 4px solid #128C7E; padding-left: 15px; margin: 20px 0; background-color: #f9f9f9; font-style: italic;">
+                Eles notaram que cerca de **77%** das obras de médio e alto padrão acabavam utilizando acabamentos abaixo da qualidade da obra, resultando em uma desvalorização percebida de **20 a 30%** no valor do imóvel.
+            </blockquote>
+            
+            <p style="line-height: 1.6;">
+                Este problema era causado por dois motivos principais: **Desinformação** e **Falta de opções** de escolhas no varejo local.
+            </p>
+
+            <h3 style="margin-top: 30px; color: #128C7E;">Nossa Missão: Acesso e Conhecimento</h3>
+            
+            <p style="line-height: 1.6;">
+                Com isso, nasce a **Pemaco Exclusive**. Nossa proposta é simples: dar acesso, conhecimento e modelos, trazendo o que há de melhor no país diretamente para Cacoal-RO e toda a região de Rondônia. Queremos garantir que seu empreendimento atinja todo o seu potencial de valorização.
+            </p>
+
+            <p style="text-align: center; margin-top: 40px;">
+                <a href="{% url 'catalogo_lista' %}" style="color: #007bff; text-decoration: none; font-weight: bold;">&larr; Voltar para o Catálogo e Orçar!</a>
+            </p>
+        </div>
+    </div>
     <div class="container-principal" style="display: block; max-width: 900px; padding: 0 20px;">
         <div class="conteudo-sobre">
             
