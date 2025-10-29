@@ -27,7 +27,7 @@ def sobre_a_marca(request):
 
 def sobre_a_marca(request):
     # Link público da imagem da sua empresa ou portfólio de porcelanato (USE UM LINK DIRETO)
-    IMAGEM_MARCA = "https://i.imgur.com/seu-link-da-empresa.jpg" 
+    IMAGEM_MARCA = "https://imgur.com/a/t7sHzgY" 
     
     context = {
         'titulo': 'Nossa História e Missão',
