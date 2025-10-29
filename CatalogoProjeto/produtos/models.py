@@ -12,8 +12,12 @@ class Produto(models.Model):
     codigo = models.CharField(max_length=50, unique=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     preco = models.DecimalField(max_digits=10, decimal_places=2)
-    link_foto = models.URLField(verbose_name='Link da Foto Principal', 
-        max_length=500)
+    link_foto_principal = models.URLField(...)
+    link_foto_ambiente = models.URLField(
+        verbose_name='Foto de Aplicação/Ambiente', 
+        blank=True,  # Permite deixar o campo vazio
+        null=True
+    )
     detalhes = models.TextField()
     acabamento = models.CharField(max_length=50) # Ex: Polido, Acetinado
 

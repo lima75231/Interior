@@ -183,7 +183,16 @@
             </form>
             
             <a href="{% url 'catalogo_lista' %}">Limpar Filtros</a>
-        </div>
+        </div>          
+                <div class="produto-card">
+    
+            <img 
+                src="{{ produto.link_foto }}" 
+                alt="{{ produto.nome }}" 
+                class="produto-img"
+                loading="lazy" 
+            >
+
 
         <div class="content">
             <p class="resultados-info">
