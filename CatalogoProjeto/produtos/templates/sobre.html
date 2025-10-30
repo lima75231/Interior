@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ titulo }}</title>
+    <title>{{ titulo|default:'Sobre a Pemaco Exclusive' }}</title>
     <style>
         /* --- ESTILOS GERAIS E LAYOUT (COPIADOS DO CATALOGO.HTML) --- */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             color: #333; 
             margin: 0; 
+            /* Exemplo de link direto: https://i.imgur.com/n1L9u2C.jpg (Pode ser uma textura leve ou cor sólida) */
             background-image: url('https://i.imgur.com/seu-link-de-fundo-aqui.jpg'); /* Use o LINK DIRETO da sua imagem! */
             background-size: cover; 
             background-attachment: fixed; 
@@ -28,6 +29,7 @@
         .header p { opacity: 0.9; margin-top: 5px; }
         
         /* NOVO: Para centralizar o conteúdo da página "Sobre" */
+        /* A tag <main> garante que o conteúdo principal seja reconhecido por leitores de tela e motores de busca */
         .container-centralizado { 
             max-width: 900px; /* A largura máxima para o conteúdo */
             margin: 20px auto; /* Centraliza o bloco na tela */
@@ -56,8 +58,11 @@
             color: #128C7E;
             margin-top: 30px;
             margin-bottom: 15px;
+            /* Ajuste: Borda superior para harmonizar com a inferior, dando um visual de "caixa" para os títulos */
             border-bottom: 1px solid #eee;
+            border-top: 1px solid #eee; /* NOVO */
             padding-bottom: 5px;
+            padding-top: 5px; /* NOVO */
         }
         .conteudo-sobre blockquote {
             border-left: 4px solid #128C7E;
@@ -89,6 +94,7 @@
         .link-voltar:hover {
             background-color: #007bff;
             color: white;
+            box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3); /* Efeito de elevação sutil */
         }
 
         /* --- RESPONSIVIDADE --- */
@@ -102,15 +108,15 @@
 </head>
 <body>
     
-    <div class="header">
+    <header class="header">
         <h1>Sobre a Pemaco Exclusive</h1>
         <p>A maior casa de marcas do país agora está em Cacoal-RO.</p>
         <a href="{% url 'catalogo_lista' %}" style="color: white; margin-top: 10px; display: inline-block; text-decoration: underline; font-weight: 600;">
             &larr; Voltar para o Catálogo
         </a>
-    </div>
+    </header>
 
-    <div class="container-centralizado"> {# NOVO CONTAINER ENVOLVENDO O CONTEÚDO #}
+    <main class="container-centralizado">
         <div class="conteudo-sobre">
             
             {% if url_imagem_empresa %}
@@ -147,8 +153,7 @@
                 &larr; Voltar para o Catálogo e Orçar!
             </a>
         </div>
-    </div>
+    </main>
     
 </body>
-</html>
 </html>

@@ -183,17 +183,8 @@
             </form>
             
             <a href="{% url 'catalogo_lista' %}">Limpar Filtros</a>
-        </div>          
-                <div class="produto-card">
-    
-            <img 
-                src="{{ produto.link_foto }}" 
-                alt="{{ produto.nome }}" 
-                class="produto-img"
-                loading="lazy" 
-            >
-
-
+        </div>          
+        
         <div class="content">
             <p class="resultados-info">
                 {% if produtos %}
@@ -206,9 +197,15 @@
             <div class="catalogo-grid">
                 {% for produto in produtos %}
                 <div class="produto-card">
-                    <img src="{{ produto.link_foto }}" alt="{{ produto.nome }}" class="produto-img">
                     
-                     <div class="produto-info">
+                    <img 
+                        src="{{ produto.link_foto }}" 
+                        alt="{{ produto.nome }}" 
+                        class="produto-img"
+                        loading="lazy" 
+                    >
+                    
+                    <div class="produto-info">
                         <div class="produto-nome">{{ produto.nome }} ({{ produto.codigo }})</div>
                         <div class="produto-detalhes">
                             **Acabamento:** {{ produto.acabamento|default:"N/A" }}<br>
@@ -222,9 +219,8 @@
                 </div>
                 {% endfor %}
             </div>
+            </div>
         </div>
-    </div>
-    
     <a href="https://wa.me/{{ settings.WHATSAPP_NUMBER }}?text=Ol%C3%A1!%20Vi%20o%20cat%C3%A1logo%20e%20gostaria%20de%20falar%20sobre%20os%20materiais%20de%20constru%C3%A7%C3%A3o." 
        target="_blank" 
        class="whatsapp-flutuante" 
