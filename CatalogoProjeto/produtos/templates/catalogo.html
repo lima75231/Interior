@@ -36,7 +36,7 @@
             border-radius: 6px; 
             margin-right: 25px; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-            height: fit-content; /* Se fixa ao conteúdo */
+            height: fit-content; 
         }
         .sidebar h3 { color: #128C7E; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px; font-size: 1.1em; }
         
@@ -93,7 +93,7 @@
         
         .produto-img { 
             width: 100%; 
-            height: 280px; /* Um pouco menor, focado no produto */
+            height: 280px;
             object-fit: cover;
         }
         
@@ -121,7 +121,7 @@
             color: white;
             text-align: center;
             padding: 15px;
-            border-radius: 0 0 8px 8px; /* Cantos arredondados apenas no final do card */
+            border-radius: 0 0 8px 8px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1em;
@@ -139,7 +139,7 @@
         /* --- RESPONSIVIDADE PARA CELULAR --- */
         @media (max-width: 850px) {
             .container-principal { 
-                flex-direction: column; /* Coloca a barra lateral acima do conteúdo */
+                flex-direction: column;
             }
             .sidebar { 
                 width: 100%; 
@@ -148,7 +148,7 @@
                 margin-bottom: 20px;
             }
             .catalogo-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); /* 1 coluna em celular */
+                grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
             }
         }
     </style>
@@ -198,12 +198,14 @@
                 {% for produto in produtos %}
                 <div class="produto-card">
                     
-                    <img 
-                        src="{{ produto.link_foto }}" 
-                        alt="{{ produto.nome }}" 
-                        class="produto-img"
-                        loading="lazy" 
-                    >
+                    {% if produto.link_foto_principal %}
+                        <img 
+                            src="{{ produto.link_foto_principal }}" 
+                            alt="{{ produto.nome }}" 
+                            class="produto-img"
+                            loading="lazy" 
+                        >
+                    {% endif %}
                     
                     <div class="produto-info">
                         <div class="produto-nome">{{ produto.nome }} ({{ produto.codigo }})</div>
