@@ -37,7 +37,7 @@ class Produto(models.Model):
 
     def get_whatsapp_link(self):
         # Acessa o número definido no settings.py (ou use o número fixo)
-        base_num = getattr(settings, 'WHATSAPP_NUMBER', "5511999999999") 
+        base_num = getattr(settings, 'WHATSAPP_NUMBER', "5569984698630") 
         mensagem = (
             f"Olá! Gostaria de um orçamento para o item:\n"
             f"Nome: {self.nome}\n"
